@@ -19,7 +19,8 @@ class Anet : public ESP8266WebServer{
     using fn = void();
     using fnArgs = void(Args* req, Anet* res);
     public:
-    void Connect(string ssid, string pass);
+    bool Connect(string ssid, string pass);
+    void ConnectAp(string ssid, string pass);
     void send(int codeHTTP, string typeHtml, string msg);
     void send(int codeHTTP, string msg);
     void send(string msg);
@@ -28,6 +29,7 @@ class Anet : public ESP8266WebServer{
     void post(string router, fnArgs f);
     void listen(int port);
     void listen(int port, fn f);
+    void Config(IPAddress ip, IPAddress sub);
 
 };
 
